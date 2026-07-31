@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contribuições Acadêmicas | Jackson Reis</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #f8fafc;
+      color: #334155;
+      line-height: 1.6;
+    }
+    /* Header / Hero */
+    header {
+      background: linear-gradient(135deg, #1e3956 0%, #0f243a 100%);
+      color: #ffffff;
+      padding: 60px 20px;
+      border-bottom: 5px solid #77c9c4;
+    }
+    .hero-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 40px;
+    }
+    @media (min-width: 768px) {
+      .hero-container {
+        flex-direction: row;
+        align-items: center;
+      }
+    }
+    .hero-img {
+      width: 240px;
+      height: 320px;
+      object-fit: cover;
+      border-radius: 16px;
+      border: 4px solid #77c9c4;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    }
+    .hero-content {
+      flex: 1;
+      text-align: center;
+    }
+    @media (min-width: 768px) {
+      .hero-content {
+        text-align: left;
+      }
+    }
+    .hero-title {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 10px;
+    }
+    .hero-subtitle {
+      font-size: 1.2rem;
+      color: #77c9c4;
+      font-weight: 600;
+      margin-bottom: 15px;
+    }
+    .hero-roles {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: center;
+      margin-top: 15px;
+    }
+    @media (min-width: 768px) {
+      .hero-roles {
+        justify-content: flex-start;
+      }
+    }
+    .badge-role {
+      background-color: rgba(67, 159, 201, 0.2);
+      border: 1px solid #439fc9;
+      color: #e2e8f0;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+
+    /* Layout Main */
+    .container {
+      max-width: 1100px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    .section-title {
+      font-size: 1.6rem;
+      color: #1e3956;
+      border-left: 5px solid #439fc9;
+      padding-left: 12px;
+      margin-bottom: 25px;
+      font-weight: 700;
+    }
+
+    /* Cards de Produção Intelectual */
+    .grid-publications {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+      margin-bottom: 50px;
+    }
+    
+    .card-pub {
+      background: #ffffff;
+      border-radius: 12px;
+      padding: 24px;
+      border: 1px solid #e2e8f0;
+      box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+      transition: transform 0.2s, box-shadow 0.2s;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .card-pub:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+    }
+    .pub-type {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-weight: 700;
+      color: #439fc9;
+      margin-bottom: 8px;
+    }
+    .pub-title {
+      font-size: 1.1rem;
+      color: #1e3956;
+      font-weight: 600;
+      margin-bottom: 12px;
+      line-height: 1.4;
+    }
+    .pub-source {
+      font-size: 0.9rem;
+      color: #64748b;
+      margin-bottom: 20px;
+    }
+    .btn-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background-color: #1e3956;
+      color: #ffffff;
+      text-decoration: none;
+      padding: 10px 18px;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      transition: background-color 0.2s;
+      width: fit-content;
+    }
+    .btn-link:hover {
+      background-color: #439fc9;
+    }
+
+    /* Trajetória Acadêmica */
+    .academic-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 25px;
+      margin-bottom: 50px;
+    }
+    @media (min-width: 768px) {
+      .academic-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+    .academic-card {
+      background: #ffffff;
+      border-top: 4px solid #1e3956;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+    .academic-card h3 {
+      font-size: 1.1rem;
+      color: #1e3956;
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .academic-list {
+      list-style: none;
+    }
+    .academic-list li {
+      position: relative;
+      padding-left: 18px;
+      margin-bottom: 10px;
+      font-size: 0.95rem;
+    }
+    .academic-list li::before {
+      content: "•";
+      color: #77c9c4;
+      font-weight: bold;
+      font-size: 1.2rem;
+      position: absolute;
+      left: 0;
+      top: -2px;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #1e3956;
+      color: #94a3b8;
+      text-align: center;
+      padding: 25px 20px;
+      font-size: 0.85rem;
+      border-top: 1px solid #334155;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HERO SECTION -->
+  <header>
+    <div class="hero-container">
+      <!-- Imagem de Perfil -->
+      <img src="IMG_2635.png" alt="Jackson Reis" class="hero-img">
+      
+      <div class="hero-content">
+        <h1 class="hero-title">Jackson Reis</h1>
+        <p class="hero-subtitle">Contribuições Acadêmicas e Publicações Científicas</p>
+        
+        <div class="hero-roles">
+          <span class="badge-role">Gestor Acadêmico Pedagógico</span>
+          <span class="badge-role">Gestor ILPI</span>
+          <span class="badge-role">Consultor Técnico</span>
+          <span class="badge-role">Docente do Ensino Técnico e Superior</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- CONTENT -->
+  <div class="container">
+
+    <!-- SEÇÃO DE ARTIGOS E LIVROS -->
+    <h2 class="section-title">Publicações e Produção Intelectual</h2>
+    <div class="grid-publications">
+
+      <!-- Artigo 1 -->
+      <div class="card-pub">
+        <div>
+          <span class="pub-type">Artigo Científico</span>
+          <h3 class="pub-title">Digital Technologies in the Daily Life of Autistic Childhood: Family Perceptions and Experiences</h3>
+          <p class="pub-source"><strong>Publicado em:</strong> OIDLES - Observatorio Iberoamericano del Desarrollo Local y la Economía Social</p>
+        </div>
+        <a href="https://desarrolloyeconomiasocial.com/index.php/oidles/article/view/996" target="_blank" class="btn-link">
+          Acessar Artigo 
+          <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z"/><path fill-rule="evenodd" d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z"/></svg>
+        </a>
+      </div>
+
+      <!-- Artigo 2 -->
+      <div class="card-pub">
+        <div>
+          <span class="pub-type">Artigo Científico</span>
+          <h3 class="pub-title">Interrupted Lives: Racism and Maternal Mortality Among Black Women in Brazil</h3>
+          <p class="pub-source"><strong>Publicado em:</strong> Periódicos Brasil (Pesquisa Científica)</p>
+        </div>
+        <a href="https://periodicosbrasil.emnuvens.com.br/revista/article/view/840" target="_blank" class="btn-link">
+          Acessar Artigo 
+          <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z"/><path fill-rule="evenodd" d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z"/></svg>
+        </a>
+      </div>
+
+      <!-- Artigo 3 -->
+      <div class="card-pub">
+        <div>
+          <span class="pub-type">Artigo Científico</span>
+          <h3 class="pub-title">Polypharmacy in Older Adults in Primary Health Care: Associated Factors, Frailty, and Challenges for Care</h3>
+          <p class="pub-source"><strong>Publicado em:</strong> Artefactum - Revista de Estudos Interdisciplinares</p>
+        </div>
+        <a href="https://artefactumjournal.com/index.php/artefactum/article/view/2898" target="_blank" class="btn-link">
+          Acessar Artigo 
+          <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z"/><path fill-rule="evenodd" d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z"/></svg>
+        </a>
+      </div>
+
+      <!-- Artigo 4 -->
+      <div class="card-pub">
+        <div>
+          <span class="pub-type">Artigo Científico</span>
+          <h3 class="pub-title">Perfil Social e de Saúde de Idosas em uma Cidade Metropolitana de São Paulo, Brasil</h3>
+          <p class="pub-source"><strong>Publicado em:</strong> REVISTA DELOS</p>
+        </div>
+        <a href="https://ojs.revistadelos.com/ojs/index.php/delos/article/view/2648" target="_blank" class="btn-link">
+          Acessar Artigo 
+          <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z"/><path fill-rule="evenodd" d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z"/></svg>
+        </a>
+      </div>
+
+      <!-- Artigo 5 -->
+      <div class="card-pub">
+        <div>
+          <span class="pub-type">Artigo Científico</span>
+          <h3 class="pub-title">In Search of the Truth: The Quality of Life of Elderly Men in the Community</h3>
+          <p class="pub-source"><strong>Publicado em:</strong> Atena Editora</p>
+        </div>
+        <a href="https://atenaeditora.com.br/catalogo/artigo-revista/em-busca-da-verdade-a-qualidade-de-vida-dos-homens-idosos-na-comunidade" target="_blank" class="btn-link">
+          Acessar Artigo 
+          <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z"/><path fill-rule="evenodd" d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z"/></svg>
+        </a>
+      </div>
+
+      <!-- Livro -->
+      <div class="card-pub" style="border-left: 4px solid #77c9c4;">
+        <div>
+          <span class="pub-type" style="color: #1e3956;">Livro / Obra Publicada</span>
+          <h3 class="pub-title">Práticas de Gestão em Serviços Sociais</h3>
+          <p class="pub-source"><strong>Formato:</strong> Publicação Acadêmica</p>
+        </div>
+        <a href="https://www.uniasselvi.com.br/extranet/layout/request/trilha/materiais/livro/livro.php?codigo=247836" target="_blank" class="btn-link" style="background-color: #439fc9;">
+          Visualizar Livro 
+          <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z"/><path fill-rule="evenodd" d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z"/></svg>
+        </a>
+      </div>
+
+    </div>
+
+    <!-- SEÇÃO FORMAÇÃO ACADÊMICA -->
+    <h2 class="section-title">Formação e Qualificações</h2>
+    <div class="academic-grid">
+      
+      <!-- Graduações -->
+      <div class="academic-card">
+        <h3>Graduação</h3>
+        <ul class="academic-list">
+          <li>Serviço Social (UNIFACS)</li>
+          <li>Pedagogia (UNYLEYA)</li>
+          <li>Gerontologia (UNINTER)</li>
+          <li>História (FACIBA)</li>
+        </ul>
+      </div>
+
+      <!-- Especializações -->
+      <div class="academic-card">
+        <h3>Especialização</h3>
+        <ul class="academic-list">
+          <li>Saúde Coletiva (FVC)</li>
+          <li>Pedagógica Social (UCAM)</li>
+          <li>Tutoria EAD (UCAM)</li>
+          <li>Gestão Escolar e Coordenação Pedagógica (UNYLEYA)</li>
+          <li>Pobreza e Desigualdade Social (UFBA)</li>
+          <li>Atendimento Clínico à Diversidade Sexual e de Gênero (FAUSP)</li>
+        </ul>
+      </div>
+
+      <!-- Mestrados -->
+      <div class="academic-card">
+        <h3>Mestrado</h3>
+        <ul class="academic-list">
+          <li>Mestrado Profissional em Psicogerontologia (EDUCATIE/BRA)</li>
+          <li>Mestrado em Gerontología Social (UNINI/MEX)</li>
+          <li>Mestrado em Gerontologia (UNEATLANTICO/ESP)</li>
+        </ul>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© Contribuições Acadêmicas de Jackson Reis. Todos os direitos reservados.</p>
+  </footer>
+
+</body>
+</html>
